@@ -17,7 +17,16 @@ import TokamakDOM
 
 let document = JSObjectRef.global.document.object!
 
+struct Rendered: View {
+  var body: some View {
+    TokamakDemoView()
+      .tokamakDOM_provideImages([
+        "logo": "http://localhost:5000/logo-header.png",
+      ])
+  }
+}
+
 let div = document.createElement!("div").object!
-let renderer = DOMRenderer(TokamakDemoView(), div)
+let renderer = DOMRenderer(Rendered(), div)
 
 _ = document.body.object!.appendChild!(div)

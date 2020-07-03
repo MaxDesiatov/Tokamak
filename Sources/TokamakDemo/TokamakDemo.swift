@@ -28,6 +28,9 @@ struct TokamakDemoView: View {
         Spacer()
       }
       VStack {
+        Image("logo", label: Text("Tokamak Demo"))
+          .frame(height: 100)
+          .padding()
         Group {
           Counter(count: 5, limit: 15)
             .padding()
